@@ -1,13 +1,9 @@
 import React, { Fragment } from "react";
 
-const divStyle = {
-  background: "#aaa"
-};
-
 const About = () => {
   return (
     <Fragment>
-      <div className='two-column' style={divStyle}>
+      <div className='two-column'>
         <div></div>
       </div>
     </Fragment>

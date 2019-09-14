@@ -3,19 +3,19 @@ import { Link } from "react-router-dom";
 
 const NavbarSide = () => {
   return (
-    <header className='navbar-side'>
+    <div className='navbar-side'>
       <nav>
         <Link to='/' className='navbar-side-link'>
-          /Home/
+          <i className='fas fa-home'></i>
         </Link>
         <Link to='/history' className='navbar-side-link'>
-          /History/
+          <i className='fas fa-history'></i>
         </Link>
         <Link to='/about' className='navbar-side-link'>
-          /About/
+          <i className='fas fa-info-circle'></i>
         </Link>
       </nav>
-    </header>
+    </div>
   );
 };
 

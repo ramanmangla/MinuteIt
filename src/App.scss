@@ -5,29 +5,33 @@
 // 		SCSS Variables
 //******************************
 
-$dark-blue: #0d1f3a;
-$sky-blue: #47cff9;
+$midnight-blue-dark: #0d1f3a;
+$dark-blue: #112c4c;
 $turquoise: #64ffda;
-$darker-blue: #09172c;
+$purple: #602080;
+$magenta: #d63cd6;
 $white: #ffffff;
-$midnight-blue: #112c4c;
 $grey: #757e98;
+$sky-blue: #47cff9;
 
-$color-background: $dark-blue;
-$color-navlinks: $sky-blue;
-$color-text: $white;
-$color-heading: $turquoise;
-$color-loading: $darker-blue;
-$color-highlight: $turquoise;
-$color-border: $midnight-blue;
-$color-medialinks: $sky-blue;
-$color-bullets: $grey;
-$color-hover: $white;
+// $color-background: $dark-blue;
+// $color-navlinks: $sky-blue;
+// $color-text: $white;
+// $color-heading: $turquoise;
+// $color-loading: $darker-blue;
+// $color-highlight: $turquoise;
+// $color-border: $midnight-blue;
+// $color-medialinks: $sky-blue;
+// $color-bullets: $grey;
+// $color-hover: $white;
+$color-link: $magenta;
+$color-link-hover: $white;
+$color-accent: $dark-blue;
+$color-background: $midnight-blue-dark;
 
 /******************************
 		Base Properties
 *******************************/
-
 html {
   /* Fluid typography scaling over responsive*/
   /* Max root size = 16px, min root size = 14px*/
@@ -42,29 +46,31 @@ body {
   margin: 0;
   // Overflow hidden stops page from moving at all
   overflow: hidden;
+  background: $color-background;
+  font-weight: 300;
+  font-family: "Open Sans";
 }
 
 a {
-  color: inherit;
   text-decoration: none;
   transition: 0.5s ease;
   font: inherit;
   text-align: center;
   line-height: 1.4em;
+  color: $color-link;
 }
 
 a:hover {
-  color: $color-hover !important;
+  color: $color-link-hover;
 }
 
 a:visited {
-  color: inherit;
+  color: $color-link;
 }
 
 .container {
   width: 100%;
   height: 100vh;
-  background: #222;
 }
 
 .sidebar-layout {
@@ -76,7 +82,6 @@ a:visited {
 .main {
   height: 100%;
   flex: 1;
-  background: #666;
 }
 
 .two-column {
@@ -86,83 +91,6 @@ a:visited {
   justify-content: space-evenly;
   align-items: center;
 }
-
-// .page {
-//   width: 100%;
-//   min-height: 100vh;
-//   background: $color-background;
-//   font-family: "Raleway";
-//   font-size: 0.95rem;
-//   font-weight: 200;
-//   color: $color-heading;
-//   // padding: 0px 40px;
-//   position: relative;
-// }
-
-// .container {
-//   /*Max-width so that container doesn't stretch too much*/
-//   /*And to set set margin auto for centering horizontally*/
-//   max-width: 900px;
-//   // min-height: 100vh;
-//   width: 88%;
-//   margin: auto;
-//   min-height: 100vh;
-//   /*Flex box to vertically center text div*/
-//   /*And left align the content*/
-//   display: flex;
-//   justify-content: center;
-//   align-items: center;
-//   flex-direction: column;
-//   /*Parent font size = 2.5 * 16 (root) = 40px*/
-//   font-size: 2.5rem;
-
-//   > h2 {
-//     width: 100%;
-//     margin-top: 0.25em;
-//     margin-bottom: 1.5em;
-//     font-size: 0.75em;
-//     font-weight: 500;
-//   }
-// }
-
-// .contentContainer {
-//   position: relative;
-//   width: 100%;
-//   min-height: 400px;
-//   display: flex;
-//   justify-content: space-between;
-//   align-items: flex-start;
-//   border-bottom: 1px solid $color-border;
-
-//   p {
-//     font-size: 0.47em;
-//     color: $color-text;
-//     line-height: 1.4em;
-//     margin-bottom: 20px;
-//   }
-// }
-
-// .leftColumn {
-//   width: 60%;
-//   max-width: 480px;
-// }
-
-// .highlight {
-//   color: $color-highlight;
-//   font-weight: 400;
-// }
-
-// .image {
-//   width: 200px;
-//   margin-top: 0px;
-//   margin-left: 50px;
-//   height: 250px;
-//   border: 1px solid $turquoise;
-
-//   img {
-//     width: 100%;
-//   }
-// }
 
 li,
 p {
@@ -175,6 +103,24 @@ p {
 
 .inline-div {
   display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.button {
+  font: inherit;
+  font-weight: 400;
+  font-size: 0.8em;
+  padding: 10px 15px;
+  border-radius: 23px;
+  border: 0;
+  transition: 0.5s ease;
+  background: $sky-blue;
+  color: $midnight-blue-dark;
+
+  &:hover {
+    background: $white;
+  }
 }
 
 /******************************
@@ -186,22 +132,26 @@ p {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 5px 50px;
+  padding: 5px 65px;
   width: 100%;
   height: 60px;
-  background: #444;
+  border-bottom: 1px solid $color-accent;
   font-size: 1rem;
+  color: $sky-blue;
 
-  &-logo {
-    font-size: 1.5em;
-    font-family: "Open Sans";
-    font-weight: 400;
+  i {
+    font-size: 1.6em;
   }
 
-  &-link {
+  &-item {
+    font-size: 0.9em;
     padding: 0 10px;
-    margin: 5px 15px;
+    margin: 5px 5px;
   }
+}
+
+.item-white {
+  color: $white;
 }
 
 /******************************
@@ -214,11 +164,18 @@ p {
   left: 0;
   width: 65px;
   height: 100%;
-  background: #555;
+  border-right: 1px solid $color-accent;
+  font-size: 1.3rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 
   nav {
     display: flex;
     flex-direction: column;
+    position: relative;
+    top: -50px;
   }
 
   &-link {
