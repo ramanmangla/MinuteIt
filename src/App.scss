@@ -9,7 +9,7 @@ $midnight-blue-dark: #0d1f3a;
 $dark-blue: #112c4c;
 $turquoise: #64ffda;
 $purple: #602080;
-$magenta: #d63cd6;
+$magenta: #c21db5;
 $white: #ffffff;
 $grey: #757e98;
 $sky-blue: #47cff9;
@@ -169,6 +169,11 @@ p {
   }
 }
 
+.title {
+  margin-left: 15px;
+  font-weight: 400;
+  font-size: 1.3em;
+}
 /******************************
 		  Side Navigation
 *******************************/

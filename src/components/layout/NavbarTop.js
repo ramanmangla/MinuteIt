@@ -8,7 +8,10 @@ const onRecord = () => {};
 const NavbarTop = ({ title, icon }) => {
   return (
     <header className='navbar-top'>
-      <i className='fas fa-cookie-bite'></i>
+      <div class='inline-div'>
+        <i className='fas fa-cookie-bite'></i>
+        <h1 class='title'>Minute It</h1>
+      </div>
       <ul className='inline-div'>
         <li className='navbar-top-item item-white'>0:48s</li>
         <li className='navbar-top-item'>
