@@ -8,10 +8,10 @@ const NavbarSide = () => {
         <Link to='/' className='navbar-side-link'>
           /Home/
         </Link>
-        <Link to='/about' className='navbar-side-link'>
+        <Link to='/history' className='navbar-side-link'>
           /History/
         </Link>
-        <Link to='/register' className='navbar-side-link'>
+        <Link to='/about' className='navbar-side-link'>
           /About/
         </Link>
       </nav>
