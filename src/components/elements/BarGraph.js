@@ -28,8 +28,8 @@ BarGraph.propTypes = {
 };
 
 BarGraph.defaultProps = {
-  names: ["Dev", "Raman", "Daman", "Mit"],
-  talkTimes: [3, 12, 7, 9]
+  names: ["Dev", "Raman", "Daman", "Mit", "Rohan"],
+  talkTimes: [3, 12, 7, 9, 5]
 };
 
 export default BarGraph;
