@@ -14,7 +14,7 @@ const NavbarTop = ({ title, icon }) => {
         <li className='navbar-top-item'>
           <Button name='Record' handler='onRecord' />
         </li>
-        <li className='navbar-top-item item-white'>
+        <li className='navbar-top-item item-white mic'>
           <i class='fas fa-microphone'></i>
         </li>
       </ul>

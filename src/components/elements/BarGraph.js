@@ -1,35 +1,35 @@
-import React from 'react';
-import { Bar } from 'react-chartjs-2'
+import React from "react";
+import PropTypes from "prop-types";
+import { Bar } from "react-chartjs-2";
 
-var attendees = {
-    names: ["Dev", "Raman", "Daman", "Mit"],
-    talkTimes: [3, 12, 7, 9]
-}
+const BarGraph = props => {
+  const { names, talkTimes } = props;
 
-const BarGraph = (props) => {
-    const { names, talkTimes } = props.attendees;
-    const data = {
-        labels: names,
-        datasets: [
-            {
-                label: 'My First dataset',
-                borderColor: 'rgba(255,99,132,1)',
-                borderWidth: 1,
-                hoverBackgroundColor: 'rgba(255,99,132,0.4)',
-                hoverBorderColor: 'rgba(255,99,132,1)',
-                data: talkTimes
-            }
-        ]
-    };
-    return (
-        <Bar data={data} />
-    )
-}
+  const data = {
+    labels: names,
+    datasets: [
+      {
+        label: "My First dataset",
+        borderColor: "rgba(255,99,132,1)",
+        borderWidth: 1,
+        hoverBackgroundColor: "rgba(255,99,132,0.4)",
+        hoverBorderColor: "rgba(255,99,132,1)",
+        data: talkTimes
+      }
+    ]
+  };
+
+  return <Bar data={data} options={{ responsive: true }} />;
+};
+
+BarGraph.propTypes = {
+  names: PropTypes.array.isRequired,
+  talkTimes: PropTypes.array.isRequired
+};
+
+BarGraph.defaultProps = {
+  names: ["Dev", "Raman", "Daman", "Mit"],
+  talkTimes: [3, 12, 7, 9]
+};
 
 export default BarGraph;
-
-
-
-
-//<BarGraph attendees={attendees} />
-  
