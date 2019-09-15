@@ -8,7 +8,7 @@ const History = () => {
     <Fragment>
       <div className='two-column'>
         <div class='two-column-first'>
-          <h2 class='element-header'>Historic Topic Relevance</h2>
+          <h2 class='element-header first-header'>Historic Topic Relevance</h2>
           <div className='doughnut'>
             <DoughnutChart />
           </div>
