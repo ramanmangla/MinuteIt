@@ -3,6 +3,7 @@ import PropTypes from "prop-types";
 import Button from "./Button";
 import { Link } from "react-router-dom";
 import Recorder from "recorder-js";
+import axios from "axios";
 
 const audioContext =  new (window.AudioContext || window.webkitAudioContext)();
 
@@ -13,61 +14,87 @@ const recorder = new Recorder(audioContext, {
 let isRecording = false;
 let blob1 = null;  
   
-const startRecording = () => {
+const startRecording = async () => {
   console.log("Start recording");
-  recorder.start()
+  await recorder.start()
     .then(() => isRecording = true);
+
+  // while(isRecording) {
+  //   console.log("Recording...");
+  //   await setTimeout(() => {
+  //     recorder.stop()
+  //       .then(({blob, buffer}) => {
+  //         blob1 = blob;
+  //     });
+  //   }, 5000);
+
+  //   await recorder.start();
+  //   await console.log(blob1);
+  // }
 }
 
 navigator.mediaDevices.getUserMedia({audio: true})
   .then(stream => recorder.init(stream))
   .catch(err => console.log('Uh oh... unable to get stream...', err));
 
-const stopRecording = () => {
+async function stopRecording() {
   console.log("Stop recording");
-  recorder.stop()
+  await recorder.stop()
     .then(({blob, buffer}) => {
       blob1 = blob;
       isRecording = false;
     });
+  //await console.log(blob1);
+  return await transferAudio();
 }
 
-// function download() {
-//   var formData = new FormData();
-//   formData.append("name", blob1);
+const transferAudio = async () => {
+  // return axios({
+  //   method:'post',
+  //   url: 'http://localhost:8000/retrieve',
+  //   data: {
+  //     blobKey: blob1
+  //   },
+  //   validateStatus: (status) => {
+  //     return true;
+  //   },
+  //   headers: {
+  //     'responseType': "blob"
+  //     // 'Access-Control-Allow-Origin': '*',
+  //     // 'Access-Control-Allow-Headers': 'Origin, X-Requested-With, Content-Type, Accept'
+  //   }
+  // }).then((data) => {
+  //   console.log(data);
+  // }).catch(err => {
+  //   console.error(err)
+  // });
+  let arrayVal = blob1.arrayBuffer();
+  // blob1.stream().getReader().read().then((data) => {
+  //   arrayVal = data.value;
+  //   //console.log(data.value);
+  // });
+  console.log(blob1.arrayBuffer());
+  return await axios
+    .post("http://localhost:8000/retrieve", {blobKey: arrayVal})
+    .then((data) => console.log(data))
+    .catch(err => {
+      console.error(err);
+  });
 
-//   //console.log(formData);
-//   // var xhr = new XMLHttpRequest();
-//   // xhr.open('POST', "http://localhost:3005/retrieve", true);
-//   // xhr.send(formData).then((data) => console.log(data));
-
-//   // console.log(blob1.text);
-//   // var data = new FormData();
-//   // data.append('name', 'audio');
-//   // data.append('file', blob1);
-//   // console.log(blob1.text());
-//   var keysToCheck = blob1.arrayBuffer();
-//   console.log(blob1);
-//   axios
-//     .post("http://localhost:3005/retrieve", {blobKey: blob1}, {
-//       "responseType": "blob"
-//     })
-//     .then((data) => console.log(data))
-//     .catch(err => {
-//       console.error(err);
-//   });
-
-//   // , {
-//   //   'Content-Type' : 'multipart/form-data'
-//   // }
-
-//   //console.log(blob1);
-//   //Recorder.download(blob1, 'my-audio-file'); // downloads a .wav file
-// }
+  // return await axios
+  //   .post("http://localhost:8000/retrieve", {blobKey: blob1}, {
+  //     "responseType": "blob"
+  //   })
+  //   .then((data) => console.log(data))
+  //   .catch(err => {
+  //     console.error(err);
+  // });
+}
 
 const onRecord = () => {
   if(isRecording) {
     stopRecording();
+
   } else {
     startRecording();
   }
