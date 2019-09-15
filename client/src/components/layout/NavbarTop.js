@@ -77,6 +77,14 @@ const transferAudio = async () => {
   //   //console.log(data.value);
   // });
   console.log(blob1.arrayBuffer());
+  // axios
+  //   .post("/createProfile/Mit", formdata, {
+  //     "enctype": "multipart/form-data"
+  //   })
+  //   .then((data) => console.log(data))
+  //   .catch(err => {
+  //     console.error(err);
+  // });
   return await axios
     .post("/retrieve", formdata, {
       "enctype": "multipart/form-data"
