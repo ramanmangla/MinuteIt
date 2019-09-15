@@ -276,3 +276,25 @@ p {
     padding: 0 10px;
   }
 }
+
+
+/******************************
+		   About
+*******************************/
+
+.aboutHeading {
+    font-size: 40px;
+    color: $sky-blue;
+    //text-align: center;
+}
+
+.aboutSubHeading {
+    font-size: 30px;
+    color: $magenta;
+    // text-align: center;
+}
+
+.aboutText {
+    font-size: 18px;
+    color: $sky-blue;
+}
