@@ -10,7 +10,6 @@ const recorder = new Recorder(audioContext, {
   onAnalysed: data => data
 });
 
-<<<<<<< HEAD
 let isRecording = false;
 let blob1 = null;  
   
@@ -32,16 +31,12 @@ const startRecording = async () => {
   //   await console.log(blob1);
   // }
 }
-=======
-let blob1 = null;
->>>>>>> 481533395a4d821f304703ad372ecd1edd8473a7
 
 navigator.mediaDevices
   .getUserMedia({ audio: true })
   .then(stream => recorder.init(stream))
   .catch(err => console.log("Uh oh... unable to get stream...", err));
 
-<<<<<<< HEAD
 async function stopRecording() {
   console.log("Stop recording");
   await recorder.stop()
@@ -104,40 +99,6 @@ const onRecord = () => {
     startRecording();
   }
 };
-=======
-const NavbarTop = ({ title, icon }) => {
-  const [isRecording, setRecording] = useState(false);
-  // const [time, setTime] = useState(0);
-  // let interval;
-  let time = 0;
-
-  const onRecord = () => {
-    if (isRecording) {
-      // clearInterval(interval);
-      stopRecording();
-    } else {
-      startRecording();
-      // interval = setInterval(() => {
-      //   let newTime = time + 1;
-      //   setTime(newTime);
-      //   console.log(time);
-      // }, 1000);
-    }
-  };
-
-  const startRecording = () => {
-    console.log("Start recording");
-    recorder.start().then(() => setRecording(true));
-  };
-
-  const stopRecording = () => {
-    console.log("Stop recording");
-    recorder.stop().then(({ blob, buffer }) => {
-      blob1 = blob;
-      setRecording(false);
-    });
-  };
->>>>>>> 481533395a4d821f304703ad372ecd1edd8473a7
 
   return (
     <header className='navbar-top'>
