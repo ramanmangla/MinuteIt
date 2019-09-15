@@ -67,14 +67,20 @@ const transferAudio = async () => {
   // }).catch(err => {
   //   console.error(err)
   // });
-  let arrayVal = blob1.arrayBuffer();
+
+  let formdata = new FormData() ;
+  formdata.append('soundBlob', blob1,  'voiceFile.wav') ; // append the sound blob and the name of the file. third argument will show up on the server as req.file.originalname
+
+  // let arrayVal = blob1.arrayBuffer();
   // blob1.stream().getReader().read().then((data) => {
   //   arrayVal = data.value;
   //   //console.log(data.value);
   // });
   console.log(blob1.arrayBuffer());
   return await axios
-    .post("http://localhost:8000/retrieve", {blobKey: arrayVal})
+    .post("/retrieve", formdata, {
+      "enctype": "multipart/form-data"
+    })
     .then((data) => console.log(data))
     .catch(err => {
       console.error(err);
@@ -101,9 +107,9 @@ const onRecord = () => {
 const NavbarTop = ({title, icon}) => {
   return (
     <header className='navbar-top'>
-      <div class='inline-div'>
+      <div className='inline-div'>
         <i className='fas fa-cookie-bite'></i>
-        <h1 class='title'>Minute It</h1>
+        <h1 className='title'>Minute It</h1>
       </div>
       <ul className='inline-div'>
         <li className='navbar-top-item item-white'>
@@ -119,7 +125,7 @@ const NavbarTop = ({title, icon}) => {
             " mic"
           }
         >
-          <i class='fas fa-microphone'></i>
+          <i className='fas fa-microphone'></i>
         </li>
       </ul>
     </header>

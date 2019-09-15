@@ -7,18 +7,18 @@ const History = () => {
   return (
     <Fragment>
       <div className='two-column'>
-        <div class='two-column-first'>
-          <h2 class='element-header first-header'>Historic Topic Relevance</h2>
+        <div className='two-column-first'>
+          <h2 className='element-header first-header'>Historic Topic Relevance</h2>
           <div className='doughnut'>
             <DoughnutChart />
           </div>
-          <h2 class='element-header'>Speaker Talk Time</h2>
-          <div class='graph'>
+          <h2 className='element-header'>Speaker Talk Time</h2>
+          <div className='graph'>
             <BarGraph />
           </div>
         </div>
-        <div class='two-column-second'>
-          <h2 class='element-header'>Older Transcripts</h2>
+        <div className='two-column-second'>
+          <h2 className='element-header'>Older Transcripts</h2>
           <TranscriptHistory />
         </div>
       </div>

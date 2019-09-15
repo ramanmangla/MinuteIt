@@ -1,6 +1,8 @@
 "use strict";
 var express = require('express');
 var router = express.Router();
+const multer  = require('multer') //use multer to upload blob data
+const upload = multer();
 
 router.use(function(req, res, next) {
     res.header("Access-Control-Allow-Origin", "*");
@@ -8,11 +10,10 @@ router.use(function(req, res, next) {
     next();
   });
 
-router.post('/', async function(req, res) {
+router.post('/', upload.single('soundBlob'), async function(req, res) {
+    const newBuff = req.file.buffer;
     // pull in the required packages.
     var sdk = require("microsoft-cognitiveservices-speech-sdk");
-    var fs = require("fs");
-    var toStream = require('blob-to-stream');
 
     // replace with your own subscription key,
     // service region (e.g., "westus"), and
@@ -25,10 +26,10 @@ router.post('/', async function(req, res) {
     var pushStream = sdk.AudioInputStream.createPushStream();
 
     //console.log(req.body);
-    let blob = req.body.blobKey;
+    // let blob = req.body.blobKey;
     // let arrayBuff = blob.arrayBuffer();
-    
-    pushStream.write(blob);
+    console.log(newBuff);
+    pushStream.write(newBuff);
 
     var audioConfig = sdk.AudioConfig.fromStreamInput(pushStream);
     var speechConfig = sdk.SpeechConfig.fromSubscription(subscriptionKey, serviceRegion);
@@ -59,7 +60,6 @@ router.post('/', async function(req, res) {
         recognizer.close();
         recognizer = undefined;
     });
-    //res.send(blob);
 });
 
 module.exports = router;

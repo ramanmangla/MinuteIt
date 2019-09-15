@@ -7,12 +7,12 @@ const Home = () => {
   return (
     <Fragment>
       <div className='two-column'>
-        <div class='two-column-first'>
-          <h2 class='element-header first-header'>Topic Relevance</h2>
+        <div className='two-column-first'>
+          <h2 className='element-header first-header'>Topic Relevance</h2>
           <div className='doughnut'>
             <DoughnutChart />
           </div>
-          <ul class='tag-list'>
+          <ul className='tag-list'>
             <li>Defects</li>
             <li>Financials</li>
             <li>Deadlines</li>
@@ -20,12 +20,12 @@ const Home = () => {
             <li>Sprint</li>
           </ul>
         </div>
-        <div class='two-column-second'>
-          <h2 class='element-header'>Speaker Talk Time</h2>
-          <div class='graph'>
+        <div className='two-column-second'>
+          <h2 className='element-header'>Speaker Talk Time</h2>
+          <div className='graph'>
             <BarGraph />
           </div>
-          <h2 class='element-header'>Transcript</h2>
+          <h2 className='element-header'>Transcript</h2>
           <Transcript />
         </div>
       </div>
