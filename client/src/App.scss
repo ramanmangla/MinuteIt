@@ -273,6 +273,7 @@ p {
 *******************************/
 
 .transcript-box {
+  position: relative;
   width: 100%;
   flex: 1;
   background: rgba(0, 0, 0, 0.08);
@@ -365,11 +366,26 @@ p {
 }
 
 .money {
-   line-height: 15px;
-    background-color: $sky-blue;
-    color: black;
-    font-size: 12px;
-    border-radius: 15px;
-    padding: 5px;
-    font-weight: 400;
+  position: absolute;
+  top: 50px;
+  right: 20px;
+  line-height: 15px;
+  max-width: 200px;
+  background-color: $sky-blue;
+  color: black;
+  font-size: 12px;
+  border-radius: 10px;
+  padding: 5px;
+  font-weight: 400;
+}
+
+.button-xe {
+  position: absolute;
+  right: 20px;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background: $sky-blue;
+  color: $midnight-blue-dark;
+  border: 0;
 }
