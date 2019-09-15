@@ -9,7 +9,7 @@ $midnight-blue-dark: #0d1f3a;
 $dark-blue: #112c4c;
 $turquoise: #64ffda;
 $purple: #602080;
-$magenta: #c21db5;
+$magenta: #c04db6;
 $white: #ffffff;
 $grey: #757e98;
 $sky-blue: #47cff9;
@@ -81,6 +81,7 @@ a:visited {
 }
 
 .main {
+  position: relative;
   height: 100%;
   flex: 1;
 }
@@ -96,6 +97,23 @@ a:visited {
 
   > div {
     margin: 40px;
+  }
+}
+
+.single-column {
+  font-size: 1rem;
+  position: relative;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 60%;
+  height: 80%;
+  line-height: 1.5em;
+
+  h1 {
+    font-size: 1.7em;
+    font-weight: 400;
+    margin-bottom: 10px;
   }
 }
 
@@ -251,10 +269,6 @@ p {
 }
 
 /******************************
-		   History
-*******************************/
-
-/******************************
 		   Transcript Box
 *******************************/
 
@@ -267,6 +281,26 @@ p {
   margin-top: 20px;
   padding: 15px;
   font-size: 1rem;
+  display: flex;
+  flex-direction: column;
+}
+
+/******************************
+      Dialogue Box
+*******************************/
+
+.dialog-box {
+  border-radius: 20px;
+  max-width: 250px;
+  padding: 10px;
+  font-size: 0.8em;
+  background: #1f487a;
+  font-weight: 400;
+  margin: 5px;
+
+  p {
+    color: $white;
+  }
 }
 
 /******************************
@@ -275,7 +309,7 @@ p {
 
 .graph {
   width: 100%;
-  padding: 20px 40px;
+  padding: 30px 40px;
 }
 
 /******************************
@@ -298,24 +332,23 @@ p {
   }
 }
 
-
 /******************************
 		   About
 *******************************/
 
 .aboutHeading {
-    font-size: 40px;
-    color: $sky-blue;
-    //text-align: center;
+  font-size: 40px;
+  color: $sky-blue;
+  //text-align: center;
 }
 
 .aboutSubHeading {
-    font-size: 30px;
-    color: $magenta;
-    // text-align: center;
+  font-size: 30px;
+  color: $magenta;
+  // text-align: center;
 }
 
 .aboutText {
-    font-size: 18px;
-    color: $sky-blue;
+  font-size: 18px;
+  color: $sky-blue;
 }

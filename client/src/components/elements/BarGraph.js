@@ -9,7 +9,6 @@ const BarGraph = props => {
     labels: names,
     datasets: [
       {
-        label: "My First dataset",
         borderColor: "rgba(255,99,132,1)",
         borderWidth: 1,
         hoverBackgroundColor: "rgba(255,99,132,0.4)",
@@ -19,7 +18,31 @@ const BarGraph = props => {
     ]
   };
 
-  return <Bar data={data} options={{ responsive: true }} />;
+  return (
+    <Bar
+      data={data}
+      options={{
+        legend: {
+          display: false
+        },
+
+        responsive: true,
+        scales: {
+          yAxes: [
+            {
+              scaleLabel: {
+                display: true,
+                labelString: "Minutes"
+              },
+              ticks: {
+                beginAtZero: true
+              }
+            }
+          ]
+        }
+      }}
+    />
+  );
 };
 
 BarGraph.propTypes = {
@@ -29,7 +52,7 @@ BarGraph.propTypes = {
 
 BarGraph.defaultProps = {
   names: ["Dev", "Raman", "Daman", "Mit", "Rohan"],
-  talkTimes: [3, 12, 7, 9, 5]
+  talkTimes: [6, 12, 7, 9, 5]
 };
 
 export default BarGraph;
