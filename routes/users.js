@@ -1,6 +1,7 @@
 "use strict";
 var express = require('express');
 var router = express.Router();
+var path = require('path');
 
 // pull in the required packages.
 var sdk = require("microsoft-cognitiveservices-speech-sdk");
@@ -12,7 +13,7 @@ var fs = require("fs");
 // through the speech recognizer.
 var subscriptionKey = "2f174168eca945e6913e66b065d85e56";
 var serviceRegion = "eastus"; // e.g., "westus"
-var filename = "/Users/damansharma/Documents/GitHub/MinuteIt/routes/test1.wav"; // 16000 Hz, Mono
+var filename = path.join(__dirname, 'test1.wav'); // 16000 Hz, Mono
 
 // create the push stream we need for the speech sdk.
 var pushStream = sdk.AudioInputStream.createPushStream();
