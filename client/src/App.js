@@ -8,6 +8,13 @@ import About from "./components/pages/About";
 import "./App.scss";
 
 function App() {
+  fetch('/users')
+    .then(res => {
+      return res.json();
+    }).then(data => {
+      console.log(JSON.parse(data.privJson).DisplayText);
+  });
+
   return (
     <Router>
       <div className='container'>
