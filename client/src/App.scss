@@ -294,7 +294,8 @@ p {
   max-width: 250px;
   padding: 10px;
   font-size: 0.8em;
-  background: #1f487a;
+  background: $midnight-blue-dark;
+  border: 1px solid $color-accent;
   font-weight: 400;
   margin: 5px;
 
@@ -322,13 +323,23 @@ p {
 
   li {
     display: flex;
-    font-size: 0.9em;
-    align-items: center;
     width: 100%;
+    font-size: 0.9em;
+    justify-content: space-between;
+    align-items: center;
     height: 40px;
     border-bottom: 1px solid $color-accent;
     color: $white;
     padding: 0 10px;
+  }
+
+  .history-item {
+    color: $sky-blue;
+    transition: 0.5s ease;
+
+    &:hover {
+      color: $magenta;
+    }
   }
 }
 
@@ -350,5 +361,5 @@ p {
 
 .aboutText {
   font-size: 18px;
-  color: $sky-blue;
+  color: $white;
 }

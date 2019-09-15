@@ -5,8 +5,9 @@ const About = () => {
     <Fragment>
       <div className='single-column'>
         <h1 class='aboutHeading'>Minute It</h1>
-        <p>An application to provide Team Discussion Quality and Analytics.</p>
         <p class='aboutText'>
+          An application to provide Team Discussion Quality and Analytics.
+          <br></br>
           <br></br>Built Using:
         </p>
         <ul class='aboutText'>

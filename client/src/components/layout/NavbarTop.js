@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import PropTypes from "prop-types";
 import Button from "./Button";
-import { Link } from "react-router-dom";
 import Recorder from "recorder-js";
 
 const audioContext = new (window.AudioContext || window.webkitAudioContext)();
