@@ -9,7 +9,7 @@ $midnight-blue-dark: #0d1f3a;
 $dark-blue: #112c4c;
 $turquoise: #64ffda;
 $purple: #602080;
-$magenta: #c21db5;
+$magenta: #c04db6;
 $white: #ffffff;
 $grey: #757e98;
 $sky-blue: #47cff9;
@@ -76,11 +76,12 @@ a:visited {
 
 .sidebar-layout {
   width: 100%;
-  height: 95%;
+  height: 90%;
   display: flex;
 }
 
 .main {
+  position: relative;
   height: 100%;
   flex: 1;
 }
@@ -96,6 +97,23 @@ a:visited {
 
   > div {
     margin: 40px;
+  }
+}
+
+.single-column {
+  font-size: 1rem;
+  position: relative;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 60%;
+  height: 80%;
+  line-height: 1.5em;
+
+  h1 {
+    font-size: 1.7em;
+    font-weight: 400;
+    margin-bottom: 10px;
   }
 }
 
@@ -161,12 +179,8 @@ p {
   color: $white;
 }
 
-.mic {
-  transition: 0.4s ease;
-
-  &:hover {
-    color: $red;
-  }
+.item-red {
+  color: $red;
 }
 
 .title {
@@ -212,25 +226,48 @@ p {
 		   Home
 *******************************/
 
+.element-header {
+  margin: 5px;
+  color: $sky-blue;
+  align-self: flex-start;
+}
+
 .two-column-first {
   width: 40%;
   height: 100%;
 }
 
+.first-header {
+  margin-bottom: 40px;
+}
+
 .two-column-second {
   height: 100%;
-  flex: 1;
+  width: 60%;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
 }
 
-.element-header {
-  margin: 5px;
-  color: $sky-blue;
-  align-self: flex-start;
+.tag-list {
+  width: 100%;
+  margin-top: 50px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  color: $white;
+  font-size: 0.9em;
+  flex-wrap: wrap;
+
+  li {
+    padding: 10px 15px;
+    margin: 10px;
+    background: rgb(192, 70, 96);
+    border-radius: 20px;
+  }
 }
+
 /******************************
 		   Transcript Box
 *******************************/
@@ -242,6 +279,29 @@ p {
   border-radius: 15px;
   border: 1px solid $color-accent;
   margin-top: 20px;
+  padding: 15px;
+  font-size: 1rem;
+  display: flex;
+  flex-direction: column;
+}
+
+/******************************
+      Dialogue Box
+*******************************/
+
+.dialog-box {
+  border-radius: 20px;
+  max-width: 250px;
+  padding: 10px;
+  font-size: 0.8em;
+  background: $midnight-blue-dark;
+  border: 1px solid $color-accent;
+  font-weight: 400;
+  margin: 5px;
+
+  p {
+    color: $white;
+  }
 }
 
 /******************************
@@ -250,5 +310,56 @@ p {
 
 .graph {
   width: 100%;
-  padding: 20px 40px;
+  padding: 30px 40px;
+}
+
+/******************************
+		   Transcript History
+*******************************/
+
+.transcript-history {
+  width: 100%;
+  height: 100%;
+
+  li {
+    display: flex;
+    width: 100%;
+    font-size: 0.9em;
+    justify-content: space-between;
+    align-items: center;
+    height: 40px;
+    border-bottom: 1px solid $color-accent;
+    color: $white;
+    padding: 0 10px;
+  }
+
+  .history-item {
+    color: $sky-blue;
+    transition: 0.5s ease;
+
+    &:hover {
+      color: $magenta;
+    }
+  }
+}
+
+/******************************
+		   About
+*******************************/
+
+.aboutHeading {
+  font-size: 40px;
+  color: $sky-blue;
+  //text-align: center;
+}
+
+.aboutSubHeading {
+  font-size: 30px;
+  color: $magenta;
+  // text-align: center;
+}
+
+.aboutText {
+  font-size: 18px;
+  color: $white;
 }

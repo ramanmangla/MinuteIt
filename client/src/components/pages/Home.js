@@ -8,10 +8,17 @@ const Home = () => {
     <Fragment>
       <div className='two-column'>
         <div class='two-column-first'>
-          <h2 class='element-header'>Topic Relevance</h2>
+          <h2 class='element-header first-header'>Topic Relevance</h2>
           <div className='doughnut'>
             <DoughnutChart />
           </div>
+          <ul class='tag-list'>
+            <li>Defects</li>
+            <li>Financials</li>
+            <li>Deadlines</li>
+            <li>Deployment</li>
+            <li>Sprint</li>
+          </ul>
         </div>
         <div class='two-column-second'>
           <h2 class='element-header'>Speaker Talk Time</h2>

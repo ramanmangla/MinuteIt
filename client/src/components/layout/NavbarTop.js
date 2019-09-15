@@ -1,16 +1,16 @@
-import React from "react";
+import React, { useState } from "react";
 import PropTypes from "prop-types";
 import Button from "./Button";
-import { Link } from "react-router-dom";
 import Recorder from "recorder-js";
 import axios from "axios";
 
-const audioContext =  new (window.AudioContext || window.webkitAudioContext)();
+const audioContext = new (window.AudioContext || window.webkitAudioContext)();
 
 const recorder = new Recorder(audioContext, {
-  onAnalysed: data => data,
+  onAnalysed: data => data
 });
 
+<<<<<<< HEAD
 let isRecording = false;
 let blob1 = null;  
   
@@ -32,11 +32,16 @@ const startRecording = async () => {
   //   await console.log(blob1);
   // }
 }
+=======
+let blob1 = null;
+>>>>>>> 481533395a4d821f304703ad372ecd1edd8473a7
 
-navigator.mediaDevices.getUserMedia({audio: true})
+navigator.mediaDevices
+  .getUserMedia({ audio: true })
   .then(stream => recorder.init(stream))
-  .catch(err => console.log('Uh oh... unable to get stream...', err));
+  .catch(err => console.log("Uh oh... unable to get stream...", err));
 
+<<<<<<< HEAD
 async function stopRecording() {
   console.log("Stop recording");
   await recorder.stop()
@@ -99,8 +104,41 @@ const onRecord = () => {
     startRecording();
   }
 };
-
+=======
 const NavbarTop = ({ title, icon }) => {
+  const [isRecording, setRecording] = useState(false);
+  // const [time, setTime] = useState(0);
+  // let interval;
+  let time = 0;
+
+  const onRecord = () => {
+    if (isRecording) {
+      // clearInterval(interval);
+      stopRecording();
+    } else {
+      startRecording();
+      // interval = setInterval(() => {
+      //   let newTime = time + 1;
+      //   setTime(newTime);
+      //   console.log(time);
+      // }, 1000);
+    }
+  };
+
+  const startRecording = () => {
+    console.log("Start recording");
+    recorder.start().then(() => setRecording(true));
+  };
+
+  const stopRecording = () => {
+    console.log("Stop recording");
+    recorder.stop().then(({ blob, buffer }) => {
+      blob1 = blob;
+      setRecording(false);
+    });
+  };
+>>>>>>> 481533395a4d821f304703ad372ecd1edd8473a7
+
   return (
     <header className='navbar-top'>
       <div class='inline-div'>
@@ -108,11 +146,19 @@ const NavbarTop = ({ title, icon }) => {
         <h1 class='title'>Minute It</h1>
       </div>
       <ul className='inline-div'>
-        <li className='navbar-top-item item-white'>0:48s</li>
+        <li className='navbar-top-item item-white'>
+          {Math.floor(time / 60) + ":" + (time % 60) + "s"}
+        </li>
         <li className='navbar-top-item'>
           <Button name='Record' handler={onRecord} />
         </li>
-        <li className='navbar-top-item item-white mic'>
+        <li
+          className={
+            "navbar-top-item " +
+            (isRecording ? "item-red" : "item-white") +
+            " mic"
+          }
+        >
           <i class='fas fa-microphone'></i>
         </li>
       </ul>
