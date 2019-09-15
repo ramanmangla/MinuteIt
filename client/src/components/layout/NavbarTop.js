@@ -3,7 +3,6 @@ import PropTypes from "prop-types";
 import Button from "./Button";
 import Recorder from "recorder-js";
 import axios from "axios";
-
 const audioContext = new (window.AudioContext || window.webkitAudioContext)();
 
 const recorder = new Recorder(audioContext, {
@@ -99,7 +98,7 @@ const onRecord = () => {
     startRecording();
   }
 };
-
+const NavbarTop = ({title, icon}) => {
   return (
     <header className='navbar-top'>
       <div class='inline-div'>
@@ -108,7 +107,7 @@ const onRecord = () => {
       </div>
       <ul className='inline-div'>
         <li className='navbar-top-item item-white'>
-          {Math.floor(time / 60) + ":" + (time % 60) + "s"}
+          {/* {Math.floor(time / 60) + ":" + (time % 60) + "s"} */}
         </li>
         <li className='navbar-top-item'>
           <Button name='Record' handler={onRecord} />
